@@ -14,6 +14,7 @@ export default function Form({ setUsers }: Props): JSX.Element | null {
         lastName: "",
         cellphone: "",
         email: "",
+        selected: false,
     });
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,10 +23,16 @@ export default function Form({ setUsers }: Props): JSX.Element | null {
     };
 
     const createUser = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault()
         setUsers((oldUsers) => [...oldUsers, { ...user }]);
-        setUser({ id: "", name: "", lastName: "", cellphone: "", email: "" });
-        console.log(user);
+        setUser({
+            id: uuidv4(),
+            name: "",
+            lastName: "",
+            cellphone: "",
+            email: "",
+            selected: false,
+        });
     };
 
     return (

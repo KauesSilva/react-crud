@@ -22,10 +22,20 @@ export default function App(): JSX.Element {
         );
     };
 
+    const deleteUser = (userSelected: IUser) => {
+        setUsers((prevUsers) =>
+            prevUsers.filter((user) => user.id !== userSelected.id)
+        );
+    };
+
     return (
         <div className="App flex justify-center items-center h-auto min-h-full w-full">
             <Table createBtn={handleCreateClick}>
-                <List selectUser={selectUser} users={users} />
+                <List
+                    selectUser={selectUser}
+                    deleteUser={deleteUser}
+                    users={users}
+                />
             </Table>
             <Modal visible={showModal} onClose={handleOnClose}>
                 <Form setUsers={setUsers} />
