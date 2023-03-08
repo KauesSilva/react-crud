@@ -10,8 +10,17 @@ export default function App(): JSX.Element {
     const [showModal, setShowModal] = useState(false);
     const handleOnClose = () => setShowModal(false);
     const handleCreateClick = () => setShowModal(true);
+    const [selected, setSelected] = useState<IUser>();
 
-    const selectUser = () => {};
+    const selectUser = (userSelected: IUser) => {
+        setSelected(userSelected);
+        setUsers((prevUsers) =>
+            prevUsers.map((user) => ({
+                ...user,
+                selected: user.id === userSelected.id ? true : false,
+            }))
+        );
+    };
 
     return (
         <div className="App flex justify-center items-center h-auto min-h-full w-full">

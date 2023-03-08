@@ -4,5 +4,5 @@ export default interface IUser {
     lastName: string,
     cellphone: string,
     email: string,
-    selected?: boolean;
+    selected: boolean;
 }

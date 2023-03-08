@@ -11,9 +11,27 @@ export default function User({
     lastName,
     cellphone,
     email,
+    selectUser,
+    selected,
 }: Props): JSX.Element {
     return (
-        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr
+            className={`${
+                selected
+                    ? "bg-gray-50 dark:bg-gray-600"
+                    : "bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+            }`}
+            onClick={() =>
+                selectUser({
+                    id,
+                    name,
+                    lastName,
+                    cellphone,
+                    email,
+                    selected,
+                })
+            }
+        >
             <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
