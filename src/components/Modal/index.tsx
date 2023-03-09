@@ -20,7 +20,7 @@ export default function Modal({
                 aria-labelledby="modal-headline"
             >
                 <div className="flex items-center justify-between p-4 border-b rounded-t-lg bg-white dark:bg-gray-800 dark:border-gray-700">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl text-gray-900 dark:text-white">
                         User
                     </h3>
                     <Button
@@ -42,7 +42,7 @@ export default function Modal({
                         </svg>
                     </Button>
                 </div>
-                <div className="bg-white border-b text-white dark:bg-gray-800 dark:border-gray-700 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="bg-white dark:bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     {children}
                 </div>
             </div>

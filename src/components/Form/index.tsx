@@ -39,24 +39,36 @@ export default function Form({
         }));
     };
 
+    const emailAlreadyExists = (email: string, users: IUser[]) => {
+        return users.some((user) => user.email === email);
+    };
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if (isEditing) {
-            const updatedUsers = editUsers.map((users) =>
-                users.id === user.id ? { ...user } : users
-            );
-            setUsers(updatedUsers);
+        const emailExists = emailAlreadyExists(
+            user.email,
+            editUsers.concat(user)
+        );
+        if (emailExists) {
+            return alert("Email already exists");
         } else {
-            const newUser = { ...user, id: uuidv4() };
-            setUsers((prevUsers) => [...prevUsers, newUser]);
-            setUser({
-                id: uuidv4(),
-                name: "",
-                lastName: "",
-                cellphone: "",
-                email: "",
-                selected: false,
-            });
+            if (isEditing) {
+                const updatedUsers = editUsers.map((users) =>
+                    users.id === user.id ? { ...user } : users
+                );
+                setUsers(updatedUsers);
+            } else {
+                const newUser = { ...user, id: uuidv4() };
+                setUsers((prevUsers) => [...prevUsers, newUser]);
+                setUser({
+                    id: uuidv4(),
+                    name: "",
+                    lastName: "",
+                    cellphone: "",
+                    email: "",
+                    selected: false,
+                });
+            }
         }
     };
 
@@ -109,7 +121,7 @@ export default function Form({
                 className="rounded-lg w-full text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-white p-2 mt-2 mb-3"
                 required
             />
-            <div className="bg-white border-b text-white dark:bg-gray-800 dark:border-gray-700 px-4 pt-5 pb-4 sm:p-6 sm:pb-4"></div>
+            <div className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 px-4 pt-5 pb-4 sm:p-6 sm:pb-4"></div>
             <div className="bg-white dark:bg-gray-800 pt-3 text-right">
                 <Button
                     type="submit"
