@@ -8,37 +8,59 @@ import IUser from "../types/User";
 export default function App(): JSX.Element {
     const [users, setUsers] = useState<IUser[] | []>([]);
     const [showModal, setShowModal] = useState(false);
-    const handleOnClose = () => setShowModal(false);
-    const handleCreateClick = () => setShowModal(true);
-    const [selected, setSelected] = useState<IUser>();
+    const handleCloseModal = () => setShowModal(false);
+    const handleOpenModal = () => setShowModal(true);
+    const [selectedUser, setSelectedUser] = useState<IUser>();
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedUser, setEditedUser] = useState<IUser | null>(null);
 
-    const selectUser = (userSelected: IUser) => {
-        setSelected(userSelected);
-        setUsers((prevUsers) =>
-            prevUsers.map((user) => ({
-                ...user,
-                selected: user.id === userSelected.id ? true : false,
+    const handleSelectUser = (user: IUser) => {
+        setSelectedUser(user);
+        setUsers((prevUsersList) =>
+            prevUsersList.map((prevUser) => ({
+                ...prevUser,
+                selected: prevUser.id === user.id ? true : false,
             }))
         );
     };
 
-    const deleteUser = (userSelected: IUser) => {
+    const handleDeleteUser = (user: IUser) => {
         setUsers((prevUsers) =>
-            prevUsers.filter((user) => user.id !== userSelected.id)
+            prevUsers.filter((prevUser) => prevUser.id !== user.id)
         );
+    };
+
+    const handleEditUser = (user: IUser) => {
+        setIsEditing(true);
+        setEditedUser(user);
+        handleOpenModal();
+    };
+
+    const handleCreateUser = () => {
+        if (selectedUser) {
+            setSelectedUser(undefined);
+            setIsEditing(false);
+        }
+        handleOpenModal();
     };
 
     return (
         <div className="App flex justify-center items-center h-auto min-h-full w-full">
-            <Table createBtn={handleCreateClick}>
+            <Table createBtn={handleCreateUser}>
                 <List
-                    selectUser={selectUser}
-                    deleteUser={deleteUser}
+                    selectUser={handleSelectUser}
+                    deleteUser={handleDeleteUser}
+                    editUser={handleEditUser}
                     users={users}
                 />
             </Table>
-            <Modal visible={showModal} onClose={handleOnClose}>
-                <Form setUsers={setUsers} />
+            <Modal isVisible={showModal} onClose={handleCloseModal}>
+                <Form
+                    setUsers={setUsers}
+                    editUsers={users}
+                    isEditing={isEditing}
+                    editedUser={editedUser}
+                />
             </Modal>
         </div>
     );

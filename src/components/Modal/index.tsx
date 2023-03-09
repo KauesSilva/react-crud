@@ -1,18 +1,17 @@
-import IUser from "../../types/User";
 import Button from "../Button";
 
 interface Props {
-    visible: boolean;
+    isVisible: boolean;
     onClose: () => void;
     children: React.ReactNode;
 }
 
 export default function Modal({
-    visible,
+    isVisible,
     onClose,
     children,
 }: Props): JSX.Element | null {
-    return visible ? (
+    return isVisible ? (
         <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
             <div
                 className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"

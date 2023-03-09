@@ -4,6 +4,7 @@ import Button from "../../../Button";
 interface Props extends IUser {
     selectUser: (selectedUser: IUser) => void;
     deleteUser: (selectedUser: IUser) => void;
+    editUser: (selectedUser: IUser) => void;
 }
 
 export default function User({
@@ -14,6 +15,7 @@ export default function User({
     email,
     selectUser,
     deleteUser,
+    editUser,
     selected,
 }: Props): JSX.Element {
     return (
@@ -45,6 +47,16 @@ export default function User({
             <td className="px-6 py-4">{email}</td>
             <td className="px-6 py-4 text-right">
                 <Button
+                    onClick={() =>
+                        editUser({
+                            id,
+                            name,
+                            lastName,
+                            cellphone,
+                            email,
+                            selected,
+                        })
+                    }
                     type="button"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
