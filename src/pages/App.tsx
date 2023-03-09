@@ -45,7 +45,7 @@ export default function App(): JSX.Element {
     };
 
     return (
-        <div className="App flex justify-center items-center h-auto min-h-full w-full">
+        <div className="App flex bg-white dark:bg-gray-900 justify-center items-center h-auto min-h-full w-full">
             <Table createBtn={handleCreateUser}>
                 <List
                     selectUser={handleSelectUser}
