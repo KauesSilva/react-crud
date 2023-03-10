@@ -1,9 +1,9 @@
 <div align="center">
-    <h1>React CRUD</h1>
+    <h1>React CRUD (under development)</h1>
     <p>A CRUD system using React with TypeScript and styled with Tailwind.</p>
 </div>
 
-![](soon)
+![](https://raw.githubusercontent.com/KauesSilva/react-crud/main/src/assets/project.png)
 
 ## 🚀 How to use it
 
