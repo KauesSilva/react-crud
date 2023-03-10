@@ -3,7 +3,7 @@
     <p>A CRUD system using React with TypeScript and styled with Tailwind.</p>
 </div>
 
-![](soon)
+!["https://raw.githubusercontent.com/KauesSilva/react-crud/main/src/assets/project.png"](soon)
 
 ## 🚀 How to use it
 
