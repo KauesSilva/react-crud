@@ -39,36 +39,24 @@ export default function Form({
         }));
     };
 
-    const emailAlreadyExists = (email: string, users: IUser[]) => {
-        return users.some((user) => user.email === email);
-    };
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const emailExists = emailAlreadyExists(
-            user.email,
-            editUsers.concat(user)
-        );
-        if (emailExists) {
-            return alert("Email already exists");
+        if (isEditing) {
+            const updatedUsers = editUsers.map((users) =>
+                users.id === user.id ? { ...user } : users
+            );
+            setUsers(updatedUsers);
         } else {
-            if (isEditing) {
-                const updatedUsers = editUsers.map((users) =>
-                    users.id === user.id ? { ...user } : users
-                );
-                setUsers(updatedUsers);
-            } else {
-                const newUser = { ...user, id: uuidv4() };
-                setUsers((prevUsers) => [...prevUsers, newUser]);
-                setUser({
-                    id: uuidv4(),
-                    name: "",
-                    lastName: "",
-                    cellphone: "",
-                    email: "",
-                    selected: false,
-                });
-            }
+            const newUser = { ...user, id: uuidv4() };
+            setUsers((prevUsers) => [...prevUsers, newUser]);
+            setUser({
+                id: uuidv4(),
+                name: "",
+                lastName: "",
+                cellphone: "",
+                email: "",
+                selected: false,
+            });
         }
     };
 
