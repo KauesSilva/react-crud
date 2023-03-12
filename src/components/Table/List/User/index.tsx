@@ -1,5 +1,5 @@
-import IUser from "../../../../types/User";
-import Button from "../../../Button";
+import IUser from "types/User";
+import Button from "@/components/Button";
 
 interface Props extends IUser {
     selectUser: (selectedUser: IUser) => void;

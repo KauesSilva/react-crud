@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Form from "../components/Form";
-import Modal from "../components/Modal";
-import Table from "../components/Table";
-import List from "../components/Table/List";
-import IUser from "../types/User";
+import Form from "@/components/Form";
+import Modal from "@/components/Modal";
+import Table from "@/components/Table";
+import List from "@/components/Table/List";
+import IUser from "@/types/User";
 
 export default function App(): JSX.Element {
     const [users, setUsers] = useState<IUser[] | []>([]);

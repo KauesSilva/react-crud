@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import IUser from "../../types/User";
-import Button from "../Button";
+import IUser from "@/types/User";
+import Button from "@/components/Button";
 import { v4 as uuidv4 } from "uuid";
 
 interface Props {

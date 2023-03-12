@@ -1,4 +1,4 @@
-import IUser from "../../../types/User";
+import IUser from "@/types/User";
 import User from "./User";
 
 interface Props {
