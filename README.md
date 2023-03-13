@@ -61,7 +61,11 @@ yarn dev
 
 ## 📕 Why/How it was built
 
-[soon]
+The system developed is a CRUD built using React, TypeScript, and Tailwind CSS. It was used yarn as a package manager and Vite as a build tool. The idea for the project came to me as a continuation of the [weather-app](https://github.com/KauesSilva/weather-app) project, where I only used HTML, CSS, and JavaScript.
+
+Due to being a front-end project, the entire project consists in sharing user information between components that were stored in an array of objects for a future manipulation
+
+The project lasted around for two weeks, and throughout the development process, I learned a lot about React, including Hooks, componentization, web packs, typing in React components, and absolute imports, among others, and I believe that it was one more important step in my career as a developer.
 
 ## ✌️Contributing
 
