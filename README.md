@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>React CRUD (under development)</h1>
+    <h1>React CRUD</h1>
     <p>A CRUD system using React with TypeScript and styled with Tailwind.</p>
 </div>
 
