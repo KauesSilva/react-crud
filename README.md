@@ -7,6 +7,10 @@
 
 ## 🚀 How to use it
 
+**Access Remotely**
+
+<a href="ts-movie-searcher.vercel.app/" target="_blank">ts-movie-searcher.vercel.app/</a>
+
 **Run the site locally**
 
 _NOTE: The default branch for this repo is `main`, when you push or pull make sure you specify the correct branch_
