@@ -9,7 +9,7 @@
 
 **Access Remotely**
 
-<a href="https://ts-react-crud.vercel.app" target="_blank">https://ts-react-crud.vercel.app//</a>
+<a href="https://ts-react-crud.vercel.app" target="_blank">https://ts-react-crud.vercel.app</a>
 
 **Run the site locally**
 
